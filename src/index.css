@@ -3,3 +3,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.daddy {
+  @apply font-['Press_Start_2P'] bg-[#9DB2D8];
+}
+
+.navbar {
+  @apply bg-[#3C66B2] w-full h-20 flex items-center justify-between border-b-4 border-[#FECE15];
+}
+
+.inputStyle {
+  @apply h-10 w-[19.2rem] rounded my-4 pl-2 pr-10 text-xs text-[#2a477c] placeholder:text-[#2a477c] placeholder:opacity-30 focus:outline-none;
+}
+
+.customSelect {
+  @apply relative h-10 w-[19.2rem] bg-white rounded flex items-center p-2 justify-between cursor-pointer;
+}
+
+.customDropdown {
+  @apply absolute w-[19.2rem] h-40 bg-white -bottom-[10.5rem] left-0 z-30 shadow-xl rounded overflow-auto;
+}
+
+.dropSelect {
+  @apply w-full h-10 border-b-2 border-gray-100 flex items-center hover:bg-gray-100 cursor-pointer pl-2;
+}
+
+.searchAndFilter {
+  @apply relative w-full flex items-center justify-between;
+}
+
+.imgContainer {
+  @apply absolute right-2 -top-1.5 transform rotate-180;
+}
+
+.pokeCard {
+  @apply relative h-60 rounded-xl bg-white flex justify-center items-center cursor-pointer hover:shadow-xl;
+}
+
+.pokeNr {
+  @apply absolute text-[#2a477c] z-10 text-6xl blur-sm top-5 opacity-50;
+}
+
+.searchBtn {
+  @apply absolute top-5 left-[17rem] rounded-full w-8 h-8 flex justify-center items-center hover:bg-[#9DB2D8];
+}

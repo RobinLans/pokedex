@@ -1,0 +1,10 @@
+[
+  { "name": "Generation I", "id": 1, "limit": 151, "offset": null },
+  { "name": "Generation II", "id": 2, "limit": 100, "offset": 151 },
+  { "name": "Generation III", "id": 3, "limit": 135, "offset": 251 },
+  { "name": "Generation IV", "id": 4, "limit": 107, "offset": 386 },
+  { "name": "Generation V", "id": 5, "limit": 156, "offset": 493 },
+  { "name": "Generation VI", "id": 6, "limit": 72, "offset": 649 },
+  { "name": "Generation VII", "id": 7, "limit": 88, "offset": 721 },
+  { "name": "Generation VIII", "id": 8, "limit": 91, "offset": 809 }
+]

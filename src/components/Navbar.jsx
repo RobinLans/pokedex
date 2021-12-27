@@ -4,7 +4,7 @@ import userIcon from "../svg/user-circle-regular.svg";
 
 function Navbar() {
   return (
-    <div className="bg-[#3C66B2] w-full h-20 flex items-center justify-between border-b-4 border-[#FECE15]">
+    <div className="navbar">
       <Link to="/" className="text-[#FECE15] text-3xl w-60 ml-6">
         Pokédex
       </Link>
@@ -12,11 +12,11 @@ function Navbar() {
         <Link to="/pokemon" className="text-[#FECE15] m-4">
           Pokémon
         </Link>
-        <Link to="#" className="text-[#FECE15] m-4">
-          Locations
+        <Link to="/memory" className="text-[#FECE15] m-4">
+          Memory
         </Link>
-        <Link to="#" className="text-[#FECE15] m-4">
-          Items
+        <Link to="/favorites" className="text-[#FECE15] m-4">
+          Favorites
         </Link>
       </div>
       <div className=" w-60 flex justify-end mr-6">

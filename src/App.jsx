@@ -1,11 +1,14 @@
 import Navbar from "./components/Navbar";
 import routes from "./Routes";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   return (
-    <div className="min-w-screen min-h-screen font-['Press_Start_2P'] bg-[#9DB2D8]">
+    <div className="daddy min-w-screen min-h-screen">
       <Navbar />
-      <div>{routes}</div>
+      <AnimatePresence>
+        <div>{routes}</div>
+      </AnimatePresence>
     </div>
   );
 }

@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import pokeball from "../svg/pokeball.svg";
 
 function PokemonCard({ data }) {
+  const navigate = useNavigate();
   const [pokeInfo, setPokeInfo] = useState(null);
   const [hoverCard, setHoverCard] = useState(false);
 
   useEffect(() => {
+    if (data.id) {
+      setPokeInfo(data);
+    }
     fetchPokeInfo(data);
-  }, []);
+  }, [data]);
 
   async function fetchPokeInfo(poke) {
     const result = await fetch(poke.url);
@@ -17,12 +22,17 @@ function PokemonCard({ data }) {
     setPokeInfo(data);
   }
 
+  function handleClick() {
+    navigate(`/pokemon/${data.name}`);
+  }
+
   return (
     <motion.div
-      className="relative h-60 rounded-xl bg-white shadow-lg hover:shadow-none flex justify-center items-center cursor-pointer"
+      className="pokeCard"
       onMouseEnter={() => setHoverCard(true)}
       onMouseLeave={() => setHoverCard(false)}
       whileHover={{ scale: 1.1 }}
+      onClick={handleClick}
     >
       {pokeInfo !== null ? (
         <>
@@ -32,10 +42,10 @@ function PokemonCard({ data }) {
             className="h-52 z-20"
           />
 
-          {hoverCard && <p className="absolute bottom-0">{pokeInfo.name}</p>}
-          <p className="absolute z-10 text-7xl blur-sm top-5 opacity-50">
-            #{pokeInfo.id}
-          </p>
+          {hoverCard && (
+            <p className="absolute bottom-0 text-[#2a477c]">{pokeInfo.name}</p>
+          )}
+          <p className="pokeNr">#{pokeInfo.id}</p>
         </>
       ) : (
         <motion.img
