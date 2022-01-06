@@ -33,7 +33,7 @@
 }
 
 .imgContainer {
-  @apply absolute right-2 -top-1.5 transform rotate-180;
+  @apply absolute right-2 -top-1 transform rotate-180;
 }
 
 .pokeCard {

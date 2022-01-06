@@ -9,6 +9,7 @@ function PokemonPage() {
   const [generation, setGeneration] = useState(generationsJSON[0]);
   const [changeGen, setChangeGen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [noPokemon, setNoPokemon] = useState(false);
 
   useEffect(() => {
     fetchPokemons();
@@ -26,17 +27,24 @@ function PokemonPage() {
     const data = await result.json();
 
     setPokemonList(data.results);
+    setNoPokemon(false);
   }
 
   async function searchForPokemon() {
-    const result = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${searchQuery}`
-    );
+    try {
+      const result = await fetch(
+        `https://pokeapi.co/api/v2/pokemon/${searchQuery}`
+      );
 
-    const data = await result.json();
-    console.log([data]);
+      const data = await result.json();
+      console.log([data]);
 
-    setPokemonList([data]);
+      setPokemonList([data]);
+      setNoPokemon(false);
+    } catch (error) {
+      console.log("Pokémon couldn't be found");
+      setNoPokemon(true);
+    }
     setSearchQuery("");
   }
 
@@ -54,12 +62,18 @@ function PokemonPage() {
           setSearchQuery={setSearchQuery}
           searchForPokemon={searchForPokemon}
         />
-        <div className="w-full grid grid-cols-3 gap-8 mb-4">
-          {pokemonList &&
-            pokemonList?.map((pokemon, i) => {
-              return <PokemonCard key={i} data={pokemon} />;
-            })}
-        </div>
+        {!noPokemon ? (
+          <div className="w-full grid grid-cols-3 gap-8 mb-4">
+            {pokemonList &&
+              pokemonList?.map((pokemon, i) => {
+                return <PokemonCard key={i} data={pokemon} />;
+              })}
+          </div>
+        ) : (
+          <div className="w-full mb-4 flex justify-center">
+            <h1 className="text-[#2a477c] mt-10">No Pokémon could be found</h1>
+          </div>
+        )}
       </div>
     </div>
   );
